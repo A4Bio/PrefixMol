@@ -1,7 +1,7 @@
 # PrefixMol: Target- and Chemistry-aware Molecule Design via Prefix Embedding
 
 ## 📢 News
-  - Code: https://github.com/ALEEEHU/MolDesign
+  - Code: https://github.com/A4Bio/PrefixMol
   - Paper: https://arxiv.org/abs/2302.07120
 
 <img src="./assets/overall_framework.jpg" alt="overall_framework"  width="70%"/>
