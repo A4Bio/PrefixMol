@@ -39,8 +39,16 @@ conda install pyg -c pyg
 # Install other tools 
 # conda install
 conda install -c conda-forge rdkit
+conda install -c conda-forge openbabel
 conda install pyyaml easydict python-lmdb -c conda-forge
+# pip install
+pip install nni
+pip install deepchem
+pip install partialsmiles
+pip install transformers
+
 ```
+
 <details><summary>🔎 Tips for pytorch3d installation</summary>
 Notice that we recommend using the following steps to install pytorch3d!
 1. install the following necessary packages.
@@ -54,6 +62,8 @@ conda install -c fvcore -c iopath -c conda-forge fvcore iopath
 cd pytorch3d
 python setup.py install
 ```
+</details>
+
 
 ## Datasets
 
