@@ -21,7 +21,7 @@ RDKit | 2021.09.4
 
 ### Install via conda yaml file (cuda 11.3)
 ```bash
-conda env create -f env_cuda113.yml
+conda env create -f env.yml
 conda activate PrefixMol
 ```
 
@@ -36,18 +36,38 @@ conda install pytorch==1.10.0 cudatoolkit=11.3 -c pytorch -c conda-forge
 # Install PyTorch Geometric (>=2.0.0)
 conda install pyg -c pyg
 
-# Install other tools
+# Install other tools 
+# conda install
 conda install -c conda-forge rdkit
 conda install pyyaml easydict python-lmdb -c conda-forge
 ```
+<details><summary>🔎 Tips for pytorch3d installation</summary>
+Notice that we recommend using the following steps to install pytorch3d!
+1. install the following necessary packages.
+``` 
+conda install -c fvcore -c iopath -c conda-forge fvcore iopath
+```
+2. Find the suitable version with your environment https://github.com/facebookresearch/pytorch3d/releases
+3. Git clone the resporitory and then run the command as follows for example.
+
+``` bash
+cd pytorch3d
+python setup.py install
+```
+
 ## Datasets
 
 Please refer to [`README.md`](./data/README.md) in the `data` folder.
 
 ## Training
+We used DDP(https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html?highlight=distributeddataparallel#torch.nn.parallel.DistributedDataParallel) to accelerate the training process. Here are some command examples FYR.
 
-```
-python train.py --config ./configs/train.yml --logdir ./logs
+```bash
+# 4 GPUs
+CUDA_VISIBLE_DEVICES="0,1,2,3" python -m torch.distributed.launch --nproc_per_node 4 train.py
+# 8 GPUs
+CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7" python -m torch.distributed.launch --nproc_per_node 8 train.py
+
 ```
 
 ## Testing
@@ -56,6 +76,8 @@ python train.py --config ./configs/train.yml --logdir ./logs
 python train.py --config ./configs/train.yml --logdir ./logs
 ```
 
+## Tips
+When running the codes, the path where the code appears is recommended to be changed to the path you need at the moment.
 
 ## Citation
 ```
