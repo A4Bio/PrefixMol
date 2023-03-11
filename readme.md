@@ -50,7 +50,7 @@ pip install transformers
 ```
 
 <details><summary>🔎 Tips for pytorch3d installation</summary>
-📌 Notice that we recommend using the following steps to install pytorch3d.
+Notice that we recommend using the following steps to install pytorch3d 👐 
 
 1. install the following necessary packages.
 ``` 
