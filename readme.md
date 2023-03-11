@@ -4,7 +4,7 @@
   - Code: https://github.com/A4Bio/PrefixMol
   - Paper: https://arxiv.org/abs/2302.07120
 
-<img src="./assets/overall_framework.jpg" alt="overall_framework"  width="70%"/>
+<img src="./assets/overall_framework.jpg" alt="overall_framework"  width="80%"/>
 We propose PrefixMol, inserting learnable conditional feature vectors into the attention module to unify multi-conditional molecule generative models to support the modeling of customized requirements.
 
 ## Installation
@@ -87,7 +87,7 @@ When it comes to testing process, we loaded the checkpoint.pth and used 1 GPU to
 CUDA_VISIBLE_DEVICES="0" python -m torch.distributed.launch --nproc_per_node 1 test.py
 ```
 
-## Tips
+## 🔖 Tips
 When running the codes, the path where the code appears is recommended to be changed to the path you need at the moment.
 
 ## Citation
