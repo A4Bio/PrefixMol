@@ -10,7 +10,7 @@ We propose PrefixMol, inserting learnable conditional feature vectors into the a
 ## Installation
 
 ### Dependency
-The codes have been tested in the following environment:
+The codes have been tested in the following environment.
 Package  | Version
 --- | ---
 Python | 3.7.12
@@ -50,7 +50,7 @@ pip install transformers
 ```
 
 <details><summary>🔎 Tips for pytorch3d installation</summary>
-Notice that we recommend using the following steps to install pytorch3d!
+📌 Notice that we recommend using the following steps to install pytorch3d.
 
 1. install the following necessary packages.
 ``` 
