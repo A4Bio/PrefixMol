@@ -244,11 +244,11 @@ def get_data_list(data, bfs_perm):
 
 class MolDesign_dataset(Dataset):
     def __init__(self, 
-                 root="/huyuqi/MolDesign/data/crossdocked_pocket10",split_path = '/huyuqi/MolDesign/data/split_by_name.pt',
+                 root="./data/crossdocked_pocket10",
+                 split_path = "./data/split_by_name.pt",
                  mode = "train",
                  transform = None) :
-                #  root="./data/crossdocked_pocket10", 
-                #  split_path = './data/split_by_name.pt',
+
         super().__init__()
         dataset = PocketLigandPairDataset(root, transform, name = "full_prop")
         split_by_name = torch.load(split_path)
