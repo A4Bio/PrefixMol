@@ -77,7 +77,7 @@ def custom_preprocess(data, transform):
     data.start_edge = random_choice(assign_index)
     start_idx = data.start_edge[0]
     
-    protein_one_knn_edge_index = knn_graph(protein_pos, k=48, flow='target_to_source', num_workers=16)#check 一下是compose还是protein[3564, 3]在dataloader处
+    protein_one_knn_edge_index = knn_graph(protein_pos, k=48, flow='target_to_source', num_workers=16)
     
     data.start_idx = start_idx
     data.protein_is_backbone = is_backbone
@@ -179,7 +179,6 @@ class PocketLigandPairDataset(Dataset):
     def _process(self):
         with open(self.index_path, 'rb') as f:
             index = pickle.load(f)
-            # index = index[:1000]
 
         tasks = []
         num_skipped = 0

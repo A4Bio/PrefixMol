@@ -125,10 +125,6 @@ class FeaturizeLigandAtom(object):
         # self.atomic_numbers = torch.LongTensor([1,6,7,8,9,15,16,17])  # H C N O F P S Cl
         self.atomic_numbers = torch.LongTensor([6,7,8,9,15,16,17])  # C N O F P S Cl
         assert len(self.atomic_numbers) == 7, NotImplementedError('fix the staticmethod: chagne_bond')
-    # @property
-    # def num_properties(self):
-        # return len(ATOM_FAMILIES)
-
     @property
     def feature_dim(self):
         return self.atomic_numbers.size(0) + (1 + 1 + 1) + 3 
@@ -196,10 +192,8 @@ class AtomComposer(object):
         return data
 
 def get_bfs_perm(nbh_list, start):
-    #nbh_list:{0: [1, 5, 6], 1: [0, 2], 2: [1, 3], 3: [2, 4, 18], 4: [3, 5, 17], 5: [0, 4], 6: [0, 7, 12], 7: [6, 8, 9], 8: [7], 9: [7, 10], 10: [9, 11, 13, 14], 11: [10, 12], 12: [6, 11], 13: [10], ...}
     num_nodes = len(nbh_list)#31
-    num_neighbors = torch.LongTensor([len(nbh_list[i]) for i in range(num_nodes)])#num_neighbors.shape:[31];tensor([3, 2, 2, 3, 3, 2, 3, 3, 1, 2, 4, 2, 2, 1, 1, 1, 1, 3, 2, 3, 1, 2, 3, 1, 2, 2, 3, 1, 3, 1, 1])
-
+    num_neighbors = torch.LongTensor([len(nbh_list[i]) for i in range(num_nodes)])
     bfs_queue = [start]#initialize the bfs_queue [5]
     bfs_perm = []
     num_remains = [num_neighbors.clone()]#[tensor([3, 2, 2, 3, ... 3, 1, 1])]
@@ -250,10 +244,11 @@ def get_data_list(data, bfs_perm):
 
 class MolDesign_dataset(Dataset):
     def __init__(self, 
-                 root="./data/crossdocked_pocket10", 
-                 split_path = './data/split_by_name.pt',
+                 root="/huyuqi/MolDesign/data/crossdocked_pocket10",split_path = '/huyuqi/MolDesign/data/split_by_name.pt',
                  mode = "train",
                  transform = None) :
+                #  root="./data/crossdocked_pocket10", 
+                #  split_path = './data/split_by_name.pt',
         super().__init__()
         dataset = PocketLigandPairDataset(root, transform, name = "full_prop")
         split_by_name = torch.load(split_path)
@@ -275,8 +270,6 @@ class MolDesign_dataset(Dataset):
             data = self.data[index]
             if data.ligand_pos.shape[0]>50: 
                 return None
-            # if self.transform is not None:
-            #     data = self.transform(data)
             
             metrics = {
                     "vina": data.ligand_vina,

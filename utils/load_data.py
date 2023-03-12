@@ -64,7 +64,7 @@ def collate_fn_sparse(batch):
    
     return start_idx, protein_feature, protein_pos,  protein_batch_id, protein_edge_idx, protein_filename_batch_list, ligand_smiles_list, metrics#, compose_batch_id
 
-def get_dataset(root="./data/crossdocked_pocket10",split_path = './data/split_by_name.pt',num_workers=8, batch_size=4, mode="train", distributed=True):
+def get_dataset(root="/huyuqi/MolDesign/data/crossdocked_pocket10",split_path = '/huyuqi/MolDesign/data/split_by_name.pt',num_workers=8, batch_size=4, mode="train", distributed=True):
     protein_featurizer = FeaturizeProteinAtom()
     ligand_featurizer = FeaturizeLigandAtom()
     transform = Compose([
@@ -72,7 +72,7 @@ def get_dataset(root="./data/crossdocked_pocket10",split_path = './data/split_by
             LigandCountNeighbors(),
             protein_featurizer,
             ligand_featurizer
-        ])
+        ])#root="./data/crossdocked_pocket10",split_path = './data/split_by_name.pt'
 
     dataset = MolDesign_dataset(root=root,
                                 split_path = split_path,

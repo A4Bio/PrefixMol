@@ -78,15 +78,15 @@ class Exp:
         self.method = MolDesign(self.args, self.device, steps_per_epoch)
 
     def _get_data(self):
-        self.train_loader = get_dataset(root="./data/crossdocked_pocket10", 
+        self.train_loader = get_dataset(root="/huyuqi/MolDesign/data/crossdocked_pocket10", 
                                         num_workers = self.args.num_workers,
                                         batch_size = self.args.batch_size,
-                                        mode="train")
+                                        mode="train")#./data/crossdocked_pocket10
 
-        self.test_loader = get_dataset(root="./data/crossdocked_pocket10",  
+        self.test_loader = get_dataset(root="/huyuqi/MolDesign/data/crossdocked_pocket10",  
                                         num_workers = self.args.num_workers,
                                         batch_size = self.args.batch_size,
-                                        mode="test")
+                                        mode="test")#./data/crossdocked_pocket10
 
     def _save(self, name=''):
         torch.save(self.method.model.state_dict(), osp.join(self.checkpoints_path, name + '.pth'))

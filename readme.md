@@ -1,4 +1,5 @@
 # PrefixMol: Target- and Chemistry-aware Molecule Design via Prefix Embedding
+[![Page Views Count](https://badges.toozhao.com/svg/aria2-ariang-docker)](https://badges.toozhao.com/stats/aria2-ariang-docker "Page Views Count")
 
 ## 📢 News
   - Code: https://github.com/A4Bio/PrefixMol
@@ -41,12 +42,17 @@ conda install pyg -c pyg
 conda install -c conda-forge rdkit
 conda install -c conda-forge openbabel
 conda install pyyaml easydict python-lmdb -c conda-forge
+
 # pip install
 pip install nni
+pip install dill
 pip install deepchem
-pip install partialsmiles
+pip install jax
+pip install jaxlib
+pip install tensorflow
 pip install transformers
-
+pip install partialsmiles
+pip install pytorch-lightning
 ```
 
 <details><summary>🔎 Tips for pytorch3d installation</summary>

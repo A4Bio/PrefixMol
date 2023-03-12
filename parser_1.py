@@ -17,8 +17,8 @@ def create_parser():
     # CATH
 
     # dataset parameters
-    parser.add_argument('--data_root', default='./data/') 
-    parser.add_argument('--batch_size', default=128, type=int)# 不报CUDA out of memory就往上怼
+    parser.add_argument('--data_root', default='/huyuqi/MolDesign/data/') #./data/
+    parser.add_argument('--batch_size', default=128, type=int)
     parser.add_argument('--num_workers', default=32, type=int)
     parser.add_argument('--given_rc', default=0, type=int)
     parser.add_argument('--use_motif_action', default=0, type=int)
@@ -35,9 +35,9 @@ def create_parser():
 
 
     # Training parameters
-    parser.add_argument('--epoch', default=50, type=int, help='end epoch')#we can have a try with 300 -2022/12/19 task
+    parser.add_argument('--epoch', default=50, type=int, help='end epoch')
     parser.add_argument('--log_step', default=1, type=int)
-    parser.add_argument('--lr', default=0.00001, type=float, help='Learning rate')#try 0.001, 0.00001, 0.0002
+    parser.add_argument('--lr', default=0.00001, type=float, help='Learning rate')
     parser.add_argument('--patience', default=100, type=int)
     
 
