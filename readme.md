@@ -1,5 +1,5 @@
 # PrefixMol: Target- and Chemistry-aware Molecule Design via Prefix Embedding
-[![Page Views Count](https://badges.toozhao.com/svg/aria2-ariang-docker)](https://badges.toozhao.com/stats/aria2-ariang-docker "Page Views Count")
+[![Page Views Count](https://github.com/A4Bio/PrefixMol)](https://github.com/A4Bio/PrefixMol "Page Views Count")
 
 ## 📢 News
   - Code: https://github.com/A4Bio/PrefixMol
