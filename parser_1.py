@@ -17,7 +17,7 @@ def create_parser():
     # CATH
 
     # dataset parameters
-    parser.add_argument('--data_root', default='/huyuqi/MolDesign/data/') #./data/
+    parser.add_argument('--data_root', default='./data/')
     parser.add_argument('--batch_size', default=128, type=int)
     parser.add_argument('--num_workers', default=32, type=int)
     parser.add_argument('--given_rc', default=0, type=int)

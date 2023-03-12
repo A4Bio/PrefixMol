@@ -62,7 +62,7 @@ def collate_fn_sparse(batch):
     if  protein_edge_idx_list:
         protein_edge_idx = torch.cat(protein_edge_idx_list, dim=-1)
    
-    return start_idx, protein_feature, protein_pos,  protein_batch_id, protein_edge_idx, protein_filename_batch_list, ligand_smiles_list, metrics#, compose_batch_id
+    return start_idx, protein_feature, protein_pos,  protein_batch_id, protein_edge_idx, protein_filename_batch_list, ligand_smiles_list, metrics
 
 def get_dataset(root="./data/crossdocked_pocket10",split_path = "./data/split_by_name.pt",num_workers=8, batch_size=4, mode="train", distributed=True):
     protein_featurizer = FeaturizeProteinAtom()
